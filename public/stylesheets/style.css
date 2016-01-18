@@ -1,8 +1,22 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	padding: 50px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: auto;
+  position: relative;
+  width: 960px;
 }
 
 a {
-  color: #00B7FF;
+	color: #00B7FF;
+}
+
+button {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+paper-toolbar {
+  --paper-toolbar-background: #FF8832;
 }

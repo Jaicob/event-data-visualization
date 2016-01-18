@@ -34,7 +34,7 @@ var streamgraph = function() {
 
         //Color range for sections of chart
         color = d3.scale.linear()
-            .range(["#FF8000", "#ADADAD"]);
+            .range(["#00a8f2", "#3E3E3E"]);
 
         //Area of svg
         area = d3.svg.area()
@@ -49,7 +49,7 @@ var streamgraph = function() {
             });
 
         //SVG itself
-        svg = d3.select("body").append("svg")
+        svg = d3.select("paper-material").append("svg")
             .attr("width", width)
             .attr("height", height)
         svg.selectAll("path")
@@ -67,9 +67,8 @@ var streamgraph = function() {
         });
     }
 
-    //Used to shift data leftwards
-    function shiftDataWindow(data) {
-        console.log("DATA", data.data);
+    //updateData
+    function updateData(data) {
         d3.selectAll("path")
             .data(function() {
                 var d = data.data;
@@ -83,7 +82,7 @@ var streamgraph = function() {
     return {
         initGraph: initGraph,
         transition: transition,
-        shiftDataWindow: shiftDataWindow
+        updateData: updateData
     }
 
 }();

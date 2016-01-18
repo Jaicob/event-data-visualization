@@ -4,12 +4,14 @@ module.exports = function(io) {
     var app = require('express');
     var router = app.Router();
     var core = require('../controllers/core.controller');
-    var d3 = require('d3');
+    var d3 = require('d3');//use this for d3's range function
 
     /**
      * Prefix:root Verb:GET URI:/ Controller: core.index
      */
     router.route('/').get(core.index);
+
+    router.route('/ptest').get(core.ptest);
 
     io.on("connection", function(socket) {
         console.log("A user connected");

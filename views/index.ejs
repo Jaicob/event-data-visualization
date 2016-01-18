@@ -4,40 +4,68 @@
     <title>Data Visualization</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta charset="utf-8">
-  </head>
-  <script src="/socket.io/socket.io.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <!-- 2. Use an HTML Import to bring in some elements. -->
+    <link rel="import" href="bower_components/iron-icon/iron-icon.html">
+    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
+    <link rel="import" href="bower_components/iron-icons/image-icons.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-input/paper-input.html">
+    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+    <link rel="import" href="bower_components/paper-material/paper-material.html">
+    <link rel="import" href="bower_components/paper-styles/paper-styles.html">
 
-  <style>
-    body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      margin: auto;
-      position: relative;
-      width: 960px;
+    <link is="custom-style" rel="import" type="css" href="/stylesheets/style.css">
+  </head>
+  <style is="custom-style" type="text/css">
+    paper-toolbar {
+      --paper-toolbar-background: #FF8832;
     }
-    button {
-      position: absolute;
-      right: 10px;
-      top: 10px;
+
+    paper-input-container {
+      --paper-input-container-color: #EEEEEE;
+      --paper-input-container-focus-color: #FFF;
+      --paper-input-container-input-color: #FFF;
+      margin-right: 10px;
     }
   </style>
-
-  <button onclick="streamgraph.transition(socket)">Update</button>
+  <script src="/socket.io/socket.io.js"></script>
   <script src="//d3js.org/d3.v3.min.js"></script>
   <script src="javascripts/streamgraph.js"> </script>
   <script>
-    var socket = io();
-
-    socket.on('init event stream', function (data) {
-      console.log("Received event stream response");
-      console.log(data);
-      streamgraph.initGraph(data);
-    });
-
-    socket.on('event stream', function (data) {
-      console.log("Received event stream response");
-      streamgraph.shiftDataWindow(data);
-    });
+  var socket = io();
+  socket.on('init event stream', function (data) {
+  console.log("Received event stream response");
+  console.log(data);
+  streamgraph.initGraph(data);
+  });
+  socket.on('event stream', function (data) {
+  console.log("Received event stream response");
+  streamgraph.updateData(data);
+  });
   </script>
+  <body>
+    <paper-material elevation="1"></paper-material>
+    <paper-toolbar class="tall">
+     <div class="top">
+      <paper-input-container>
+        <label>Start YYYY-MM-DD</label>
+        <input is="iron-input">
+     </paper-input-container>
+    </div>
+    <div class="middle">
+      <paper-input-container>
+        <label>End YYYY-MM-DD</label>
+        <input is="iron-input">
+      </paper-input-container>
+    </div>
+    <div class="toolbar-tools middle">
+     <paper-button onclick="streamgraph.transition(socket)"><iron-icon icon="editor:publish"></iron-icon>Apply</paper-button>
+    </div>
+  </paper-toolbar>
+</body>
+
+<!-- <button >Update</button> -->
 </html>
-
-
