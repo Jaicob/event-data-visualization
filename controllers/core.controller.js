@@ -4,33 +4,41 @@
  * Dependencies
  **/
 var eventbrite = require('../services/eventbrite_api.service');
+//var db = require('../db');
 
 /**
  * Serves up the root page
  */
 exports.index = function(req, res, next) {
-	res.render('index', { title: 'Express' });
+    res.render('index', {
+        title: 'Express'
+    });
 };
 
 exports.ptest = function(req, res, next) {
-	res.render('ptest', { title: 'Polymer' });
+    res.render('ptest', {
+        title: 'Polymer'
+    });
 };
 
 /**
  * Serves up the root page
  */
 exports.test = function(req, res, next) {
-	res.render('test', { title: 'Express' });
+    res.render('test', {
+        title: 'Express'
+    });
 };
 
 
 //Temporary implementation of a way to populate the graph, this will move to a service that interact with the api next
-exports.getData = function(n){
-	// Inspired by Lee Byron's test data generator.
-	// eventbrite.getCategories({},function(status, res){
-	// 	console.log('Status',status);
-	// 	console.log('Res',res);
-	// })
+exports.getData = function(n) {
+    // Inspired by Lee Byron's test data generator.
+    // eventbrite.getCategories({},function(status, res){
+    // 	console.log('Status',status);
+    // 	console.log('Res',res);
+    // })
+
 
     function bump(a) {
         var x = 1 / (.1 + Math.random()),
@@ -52,4 +60,3 @@ exports.getData = function(n){
         };
     });
 }
-

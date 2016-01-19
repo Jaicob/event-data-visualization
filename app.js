@@ -7,8 +7,15 @@ var bodyParser = require('body-parser');
 var socket_io = require( "socket.io" );
 
 var app = express();
+var config = require('./config.json')[app.get('env')];
+
+// Socker.io
 var io = socket_io();
 app.io = io;
+
+// Redis connection
+var db = require('./db')
+app.db = db;
 
 var routes = require('./routes/core.routes')(io);
 
@@ -32,6 +39,8 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
+// Connect to redis
 
 // error handlers
 

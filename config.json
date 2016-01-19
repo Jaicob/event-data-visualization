@@ -1,4 +1,3 @@
-// config.json
 {
   "development": {
     "redisPort": 6379,
