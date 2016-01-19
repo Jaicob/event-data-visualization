@@ -1,0 +1,33 @@
+{
+	"AWSEBDockerrunVersion" :"2",
+	"containerDefinitions" : [
+		{
+			"name":"web",
+			"image" : "jaicob/ebdv",
+			"essential": true,
+			"memory": 1000,
+			"portMappings" : [
+				{
+					"hostPort": 80,
+					"containerPort": 80
+				}
+			],
+			"environment": [
+        		{
+        			"name": "NODE_ENV",
+          			"value": "production"
+        		},
+        		{
+        			"name": "PORT",
+          			"value": "3000"
+        		},
+     		],
+			"mountPoints":[
+				{
+					"sourceVolume" :"awseb-logs-web",
+					"containerPath":"/home/rails/my-app/log"
+				}
+			]
+		}
+	]
+}

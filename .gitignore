@@ -30,3 +30,7 @@ node_modules
 npm-debug.log
 
 bower_components/*
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

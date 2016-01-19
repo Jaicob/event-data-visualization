@@ -27,10 +27,10 @@ exports.test = function(req, res, next) {
 //Temporary implementation of a way to populate the graph, this will move to a service that interact with the api next
 exports.getData = function(n){
 	// Inspired by Lee Byron's test data generator.
-	eventbrite.getCategories({},function(status, res){
-		console.log('Status',status);
-		console.log('Res',res);
-	})
+	// eventbrite.getCategories({},function(status, res){
+	// 	console.log('Status',status);
+	// 	console.log('Res',res);
+	// })
 
     function bump(a) {
         var x = 1 / (.1 + Math.random()),
