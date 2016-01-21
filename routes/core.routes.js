@@ -4,7 +4,7 @@ module.exports = function(io) {
     var app = require('express');
     var router = app.Router();
     var core = require('../controllers/core.controller');
-    var d3 = require('d3');//use this for d3's range function
+    var d3 = require('d3'); //use this for d3's range function
 
     /**
      * Prefix:root Verb:GET URI:/ Controller: core.index
@@ -14,20 +14,18 @@ module.exports = function(io) {
     router.route('/ptest').get(core.ptest);
 
     io.on("connection", function(socket) {
-        console.log("A user connected");
 
-        socket.emit('init event stream', {
-            data: d3.range(5).map(function() {
-                return core.getData(15);
-            })
+        core.capacityLayers(function(data) {
+            console.log("Sending data stresm")
+            socket.emit('init event stream', {
+                data: data
+            });
         });
 
         socket.on('event req', function(data) {
             console.log(data);
             socket.emit('event stream', {
-                data: d3.range(5).map(function() {
-                    return core.getData(15);
-                })
+                data: core.getData()
             });
         });
 

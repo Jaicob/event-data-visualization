@@ -28,10 +28,7 @@ io.attach(server);
 
 var db = app.db;
 db.connect();
-// db.set("some_key", "some_value")
-// db.get("some_key", function(err, result) {
-//     console.log(result) // prints 'some_value'
-// })
+
 
 /**
  * Listen on provided port, on all network interfaces.

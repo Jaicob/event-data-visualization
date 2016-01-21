@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var socket_io = require( "socket.io" );
+var _ = require('underscore');
 
 var app = express();
 var config = require('./config.json')[app.get('env')];
 
 // Socker.io
 var io = socket_io();
+io.sockets.setMaxListeners(0);
 app.io = io;
 
 // Redis connection

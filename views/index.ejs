@@ -33,18 +33,18 @@
   }
   </style>
   <script src="/socket.io/socket.io.js"></script>
-  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//d3js.org/d3.v3.js"></script>
   <script src="javascripts/streamgraph.js"> </script>
   <script>
   var socket = io();
   socket.on('init event stream', function (data) {
   console.log("Received event stream response");
-  console.log(data);
+  console.log(data.data);
   streamgraph.initGraph(data);
   });
   socket.on('event stream', function (data) {
   console.log("Received event stream response");
-  streamgraph.updateData(data);
+  streamgraph.updateData(data.data);
   });
   </script>
   <body>
