@@ -67,13 +67,11 @@ var streamgraph = function() {
         //Defines the y-axis
         y = d3.scale.linear()
             .domain([0, d3.max(layers, function(layer) {
-                console.log("DEBUG: layer",layer);
-                var max = d3.max(layer, function(d) {
-                    console.log("DEBUG: d",d);
-                    return d.values.y0 + d.values.y;
+                var max = d3.max(layer.values, function(d) {
+                    return d.y0 + d.y;
                 });
                 console.log("DEBUG: Max",max);
-                return 1000;
+                return max;
             })])
             .range([height, 0]);
 
