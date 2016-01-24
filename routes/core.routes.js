@@ -13,6 +13,10 @@ module.exports = function(io) {
 
     router.route('/ptest').get(core.ptest);
 
+    router.route('/categories').get(core.test);
+
+    router.route('/events').get(core.events);
+
     io.on("connection", function(socket) {
 
         core.capacityLayers(function(data) {

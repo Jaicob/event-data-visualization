@@ -5,16 +5,20 @@ var https = require('https');
 /**
  * Basic data fetching for now
  */
-exports.getCategories = function(options, callback){
-	https.get('https://www.eventbriteapi.com/v3/categories/?token=BKKRDKVUVRC5WG4HAVLT', function(res) {
-	console.log("statusCode: ", res.statusCode);
-	console.log("headers: ", res.headers);
+exports.getCategories = function(callback) {
+    //second page https://www.eventbriteapi.com/v3/events/search/?start_date.range_start=2016-01-17T00%3A00%3A00Z&sort_by=date&popular=on&token=I66BMTTQT7FJNEOM7UW2&start_date.range_end=2016-02-17T00%3A00%3A00Z&venue.country=US&page=2
+    return https.get('https://www.eventbriteapi.com/v3/events/search/?popular=on&sort_by=date&venue.country=US&start_date.range_start=2016-01-17T00%3A00%3A00Z&start_date.range_end=2016-02-17T00%3A00%3A00Z&token=I66BMTTQT7FJNEOM7UW2', function(response) {
 
-	res.on('data', function(d) {
-		callback('success',d);
-	});
+        var body = '';
+        response.on('data', function(d) {
+            body += d;
+        });
+        response.on('end', function() {
 
-	}).on('error', function(e) {
-		callback('error',e);
-	});
+            // var parsed = JSON.parse(body);
+            callback({
+                data: body
+            });
+        });
+    });
 }

@@ -52,11 +52,16 @@ exports.ptest = function(req, res, next) {
  * Serves up the root page
  */
 exports.test = function(req, res, next) {
-    res.render('test', {
-        title: 'Express'
+    eventbrite.getCategories(function(data){
+        res.json(data);
     });
 };
 
+exports.events = function(req, res, next) {
+    events.all(function(data){
+        res.json(data);
+    });
+}
 
 //Temporary implementation of a way to populate the graph, this will move to a service that interact with the api next
 exports.getData = function(callback) {
@@ -106,33 +111,14 @@ exports.capacityLayers = function(callback) {
     }, function(err, results) {
        callback(results);
     });
-
-    // var layers = keys.map(function(k) {
-    //     return {
-    //         name: cats[k],
-    //         values: events.getByCategory(k, function(err, data) {
-    //             var i = 0;
-    //             return data.map(function(d) {
-    //                 
-    //             });
-    //         })
-    //     }
-    // });
-    // return keys.map(function(k) {
-    //     events.getByCategory(k, function(err, data) {
-    //         console.log("Values", data);
-    //         var i = 0;
-    //         return {
-    //             name: cats[k],
-    //             values: data.map(function(d) {
-    //                 return {
-    //                     x: i++,
-    //                     y: d.capacity
-    //                 };
-    //             })
-    //         }
-    //     });
-    // });
-    // console.log("from capacityLayers", layers);
-    // callback(layers);
 }
+
+/*
+ * Generates the layer data for the streamgraph
+ * to display the break down of capacity by event
+ */
+// exports.events = function(callback) {
+//     events.all(function(err, res){
+//        callback(res);
+//     });
+// }

@@ -16,7 +16,6 @@ var streamgraph = function() {
 
         stack = d3.layout.stack()
             .offset("wiggle").values(function(d) {
-                console.log("DDDDDDDD", d.values);
                 if (d.values.length < 1) {
                     return [{
                         x: 0,
@@ -25,7 +24,7 @@ var streamgraph = function() {
                     }];
                 }
                 return d.values;
-            });
+            }),
         layers = stack(data.data);
         console.log("Layer", layers);
 
@@ -38,11 +37,11 @@ var streamgraph = function() {
         //     return new Date(d.jsonDate);
         // }
 
-        // // get max and min dates - this assumes data is sorted
+        // get max and min dates - this assumes data is sorted
         // var minDate = getDate(data.data[0]),
         //     maxDate = getDate(data.data[data.data.length - 1]);
 
-        // var x = d3.time.scale().domain([minDate, maxDate]).range([0, width]);
+        // x = d3.time.scale.utc().domain([minDate, maxDate]).range([0, width]);
 
         // x = d3.time.scale.utc()
         //     .range([0, width]);
