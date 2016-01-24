@@ -11,8 +11,6 @@ module.exports = function(io) {
      */
     router.route('/').get(core.index);
 
-    router.route('/ptest').get(core.ptest);
-
     router.route('/categories').get(core.test);
 
     router.route('/events').get(core.events);

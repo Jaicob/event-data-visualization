@@ -1,74 +1,43 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Data Visualization</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <meta charset="utf-8">
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
-    <!-- 2. Use an HTML Import to bring in some elements. -->
-    <link rel="import" href="bower_components/iron-icon/iron-icon.html">
-    <link rel="import" href="bower_components/iron-icons/iron-icons.html">
-    <link rel="import" href="bower_components/iron-icons/editor-icons.html">
-    <link rel="import" href="bower_components/iron-icons/image-icons.html">
-    <link rel="import" href="bower_components/paper-button/paper-button.html">
-    <link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
-    <link rel="import" href="bower_components/paper-input/paper-input.html">
-    <link rel="import" href="bower_components/paper-input/paper-input.html">
-    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-    <link rel="import" href="bower_components/paper-material/paper-material.html">
-    <link rel="import" href="bower_components/paper-styles/paper-styles.html">
-    <link rel="import" href="bower_components/paper-styles/typography.html">
-    <link rel="import" href="bower_components/paper-styles/classes/typography.html">
-    <link is="custom-style" rel="import" type="css" href="/stylesheets/style.css">
-  </head>
-  <style is="custom-style" type="text/css">
-  paper-toolbar {
-  --paper-toolbar-background: #FF8832;
-  }
-  paper-input-container {
-  --paper-input-container-color: #EEEEEE;
-  --paper-input-container-focus-color: #FFF;
-  --paper-input-container-input-color: #FFF;
-  margin-right: 10px;
-  }
-  </style>
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="//d3js.org/d3.v3.js"></script>
-  <script src="javascripts/streamgraph.js"> </script>
-  <script>
-  var socket = io();
-  socket.on('init event stream', function (data) {
-  console.log("Received event stream response");
-  console.log(data.data);
-  streamgraph.initGraph(data);
-  });
-  socket.on('event stream', function (data) {
-  console.log("Received event stream response");
-  streamgraph.updateData(data.data);
-  });
-  </script>
-  <body>
-  <header class="paper-font-display2">Eventbrite Streamgraph</header>
-  <div>
-  <paper-material elevation="1"></paper-material>
-  <paper-toolbar class="tall">
-    <div class="top">
-      <paper-input-container>
-        <label>Start YYYY-MM-DD</label>
-        <input is="iron-input">
-      </paper-input-container>
-    </div>
-    <div class="middle">
-      <paper-input-container>
-        <label>End YYYY-MM-DD</label>
-        <input is="iron-input">
-      </paper-input-container>
-    </div>
-    <div class="toolbar-tools middle">
-    <paper-button onclick="streamgraph.transition(socket)"><iron-icon icon="editor:publish"></iron-icon>Apply</paper-button>
-  </div>
-</paper-toolbar>
+    <head>
+        <meta charset="utf-8">
+        <link href="stylesheets/nvd3.css" rel="stylesheet" type="text/css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+        <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="javascripts/nvd3.js"></script>
+        <script src="javascripts/xdategraph.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <style>
+        text {
+        font: 12px sans-serif;
+        }
+        svg {
+        display: block;
+        }
+        
+        </style>
+    </head>
+    <script>
+        var socket = io();
+        socket.on('init event stream', function (data) {
+        console.log("Received event stream response");
+        console.log(data.data);
+        streamgraph.initGraph('data.json','orange',_);
+        });
+        socket.on('event stream', function (data) {
+        console.log("Received event stream response");
+        streamgraph.updateData(data.data);
+        });
+    </script>
+    <body class='with-3d-shadow with-transitions'>
+    <header>Eventbrite Streamgraph</header>
+    <div style="height:500px; width:980px;">
+        <div elevation="1" style="padding: 15px;">
+        <svg id="chart1" style="z-index:100;"></svg>
+        <script>
+      
+        </script>
+    </div >
 </div>
 </body>
-<!-- <button >Update</button> -->
 </html>

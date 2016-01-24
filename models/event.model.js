@@ -1,28 +1,6 @@
 var db = require('../db');
+var categories = require('./category.model').get();
 var _ = require("underscore");
-
-var categories = {
-    "101": "Business",
-    "102": "Science & Tech",
-    "103": "Music",
-    "104": "Film & Media",
-    "105": "Performing & Visual Arts",
-    "106": "Fashion",
-    "107": "Health",
-    "108": "Sports & Fitness",
-    "109": "Travel & Outdoor",
-    "110": "Food & Drink",
-    "111": "Charity & Causes",
-    "112": "Government",
-    "113": "Community",
-    "114": "Spirituality",
-    "115": "Family & Education",
-    "116": "Holiday",
-    "117": "Home & Lifestyle",
-    "118": "Auto, Boat & Air",
-    "119": "Hobbies",
-    "199": "Other",
-};
 
 exports.add = function(eventObject, callback) {
     db.get().flushall();
@@ -43,7 +21,7 @@ exports.addList = function(eventObjects, callback) {
         var data = {
             capacity: event.capacity,
             category_id: event.category_id,
-            date: event.start.utc
+            date: event.start.utc.substring(0, event.start.utc.indexOf('T'))
         }
         return JSON.stringify(data);
     });
