@@ -25,34 +25,34 @@
     <script>
     var socket = io();
     socket.on('init event stream', function (data) {
-    console.log("Received event stream response",data.data);
-    streamgraph.initGraph('data.json','orange',_);
+    streamgraph.initGraph('data.json',_);
     });
     socket.on('event stream', function (data) {
-    console.log("Received more data");
-    console.log(data.data);
     streamgraph.updateChartData(data.data);
     });
-    $(document).foundation();
     $(document).ready(function(){
+    $(document).foundation();
     $('#form').submit(function(event){
-        console.log("submitted",$('#start').val());
-    socket.emit('event req', 
-        {start: $('#start').val(),
-         end:$('#end').val() 
-         });
+    socket.emit('event req',
+    {start: $('#start').val(),
+    end:$('#end').val()
+    });
     event.preventDefault();
     });
-});
+    });
     </script>
-    <header class="top-bar">
+    <div class="top-bar">
         <div class="top-bar-left">
-            EventBrite Challenge
+            <ul class="dropdown menu" data-dropdown-menu>
+                <li class="menu-text">Jaicob Stewart</li>
+            </ul>
         </div>
         <div class="top-bar-right">
-            Github
+            <ul class="menu">
+                <li><a href="https://github.com/Jaicob/event-data-visualization">Github</a></li>
+            </ul>
         </div>
-    </header>
+    </div>
     <br>
     <br>
     <body class='with-3d-shadow with-transitions'>
@@ -67,10 +67,10 @@
                 <form id="form">
                     <fieldset class="fieldset">
                         <div  class="input-group">
-                            <span class="input-group-label">Start Date (yyyy-dd-mm)</span>
+                            <span class="input-group-label">Start Date (yyyy-mm-dd)</span>
                             <input class="input-group-field" id="start" type="text" value="2016-01-01">
-                            <span class="input-group-label">End Date (yyyy-dd-mm)</span>
-                            <input class="input-group-field" id="end" type="text" value="2016-04-01">
+                            <span class="input-group-label">End Date (yyyy-mm-dd)</span>
+                            <input class="input-group-field" id="end" type="text" value="2016-01-04">
                             <div class="input-group-button">
                                 <input type="submit" class="button" value="Apply">
                             </div>

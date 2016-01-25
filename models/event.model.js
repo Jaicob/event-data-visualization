@@ -17,7 +17,6 @@ var add = function(eventObject, callback) {
 
 var addList = function(eventObjects, callback) {
     db.get().flushall();
-    console.log("Add list",eventObjects);
     var data = eventObjects
         .filter(function(event) {
             return !(event.category_id == null);

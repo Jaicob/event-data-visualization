@@ -3,14 +3,37 @@ var streamgraph = function() {
     var datearray = [];
     var colorrange = [];
     var format = d3.time.format("%Y-%m-%d");
-    var nest = d3.nest()
-        .key(function(d) {
-            return d.category_id;
-        });;
+   
     var width = 900;
     var height = 560;
     var chart,
         chartData;
+    var categories =  {
+        "101": "Business",
+        "102": "Science & Tech",
+        "103": "Music",
+        "104": "Film & Media",
+        "105": "Performing & Visual Arts",
+        "106": "Fashion",
+        "107": "Health",
+        "108": "Sports & Fitness",
+        "109": "Travel & Outdoor",
+        "110": "Food & Drink",
+        "111": "Charity & Causes",
+        "112": "Government",
+        "113": "Community",
+        "114": "Spirituality",
+        "115": "Family & Education",
+        "116": "Holiday",
+        "117": "Home & Lifestyle",
+        "118": "Auto, Boat & Air",
+        "119": "Hobbies",
+        "199": "Other",
+    };
+     var nest = d3.nest()
+        .key(function(d) {
+            return categories[d.category_id];
+        });
 
 
     function fillInMissingDates(values) {
@@ -79,12 +102,12 @@ var streamgraph = function() {
         return nestedData;
     }
 
-    function initGraph(jsondata, color, _) {
+    function initGraph(jsondata, _) {
 
         var graph = d3.json(jsondata, function(data) {
             var nestedData = formatData(data);
             var colors = d3.scale.category20();
-            
+
             _this.chart = nv.addGraph(function() {
                 var chart = nv.models.stackedAreaChart()
                     .useInteractiveGuideline(true)
@@ -102,8 +125,6 @@ var streamgraph = function() {
                     return d3.time.format('%x')(new Date(d))
                 });
                 chart.yAxis.tickFormat(d3.format(',.4f'));
-                // chart.width(900);
-                // chart.height(560);
                 chart.legend.vers('furious');
                 chartData = d3.select('#chart1 svg').datum(nestedData);
                 chartData.transition().duration(1000)

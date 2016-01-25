@@ -35,6 +35,7 @@ module.exports = function(io) {
         // });
 
         socket.on('disconnect', function() {
+            //Delete data
             console.log('user disconnected');
         });
     });
