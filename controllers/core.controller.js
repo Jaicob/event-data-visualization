@@ -20,20 +20,6 @@ exports.index = function(req, res, next) {
     });
 };
 
-exports.ptest = function(req, res, next) {
-    res.render('ptest', {
-        title: 'Polymer'
-    });
-};
-
-/**
- * Serves up the root page
- */
-exports.test = function(req, res, next) {
-    eventbrite.getEvents(function(data){
-        res.json(data);
-    });
-};
 
 exports.events = function(req, res, next) {
     events.all(function(data){

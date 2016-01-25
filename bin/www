@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+console.log("NODE WWW ENV",process.env);
 /**
  * Module dependencies.
  */
@@ -9,6 +9,8 @@ var debug = require('debug')('event-data-visualization:server');
 var http = require('http');
 var io = require('socket.io')(http);
 var db = require('../db')
+var config = require('./../config.json')[app.get('env')];
+var redisHost = process.env['REDIS_PORT_6379_TCP_ADDR'];
 
 
 /**
@@ -27,7 +29,7 @@ var io = app.io;
 io.attach(server);
 
 var db = app.db;
-db.connect();
+db.connect(redisHost);
 
 
 /**

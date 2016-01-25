@@ -11,19 +11,15 @@ module.exports = function(io) {
      */
     router.route('/').get(core.index);
 
-    router.route('/categories').get(core.test);
-
     router.route('/events').get(core.events);
 
     io.on("connection", function(socket) {
-
 
         console.log("Sending data stream");
         socket.emit('init event stream', {
             data: "data"
         });
 
-        // core.getData(function(graphData) {
         socket.on('event req', function(data) {
             console.log("requested more data", data);
             core.getData(data.start, data.end, function(graphData) {
@@ -32,7 +28,6 @@ module.exports = function(io) {
                 });
             });
         });
-        // });
 
         socket.on('disconnect', function() {
             //Delete data

@@ -4,7 +4,6 @@ var eventbrite = require('../services/eventbrite_api.service');
 var _ = require("underscore");
 
 var add = function(eventObject, callback) {
-    db.get().flushall();
     var data = {
         date: eventObject.start.utc,
         capacity: eventObject.capacity,
@@ -63,6 +62,7 @@ var all = function(start, end, callback) {
         })
     })
 }
+
 
 module.exports = {
   add: add,
