@@ -19,20 +19,20 @@ module.exports = function(io) {
 
 
         console.log("Sending data stream");
-        // core.getData(function(data) {
-            socket.emit('init event stream', {
-                data: "data"
-            });
-        // });
+        socket.emit('init event stream', {
+            data: "data"
+        });
 
-        core.getData(function(graphData) {
-            socket.on('event req', function(data) {
-                console.log("requested more data", data);
+        // core.getData(function(graphData) {
+        socket.on('event req', function(data) {
+            console.log("requested more data", data);
+            core.getData(data.start, data.end, function(graphData) {
                 socket.emit('event stream', {
                     data: graphData
                 });
             });
         });
+        // });
 
         socket.on('disconnect', function() {
             console.log('user disconnected');

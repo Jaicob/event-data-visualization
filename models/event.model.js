@@ -17,7 +17,7 @@ var add = function(eventObject, callback) {
 
 var addList = function(eventObjects, callback) {
     db.get().flushall();
-
+    console.log("Add list",eventObjects);
     var data = eventObjects
         .filter(function(event) {
             return !(event.category_id == null);
@@ -51,9 +51,9 @@ var getByCategory = function(category, callback) {
     });
 }
 
-var all = function(callback) {
+var all = function(start, end, callback) {
     //If not in the db then needs to populate the db and add it
-    eventbrite.getEvents(function(data) {
+    eventbrite.getEvents(start, end, function(data) {
         addList(data.events, function() {
             db.get().lrange("events", 0, -1, function(err, items) {
                 callback(items.map(function(item) {

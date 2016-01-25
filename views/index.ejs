@@ -2,9 +2,13 @@
     <head>
         <meta charset="utf-8">
         <link href="stylesheets/nvd3.css" rel="stylesheet" type="text/css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
+        <link href="bower_components/foundation-sites/dist/foundation.min.css" rel="stylesheet" type="text/css">
         <script src="bower_components/underscore/underscore-min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.2/foundation-flex.css"></script>
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/foundation-sites/dist/foundation.min.js"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
         <script src="javascripts/nvd3.js"></script>
         <script src="javascripts/xdategraph.js"></script>
         <script src="/socket.io/socket.io.js"></script>
@@ -29,14 +33,53 @@
     console.log(data.data);
     streamgraph.updateChartData(data.data);
     });
+    $(document).foundation();
+    $(document).ready(function(){
+    $('#form').submit(function(event){
+        console.log("submitted",$('#start').val());
+    socket.emit('event req', 
+        {start: $('#start').val(),
+         end:$('#end').val() 
+         });
+    event.preventDefault();
+    });
+});
     </script>
+    <header class="top-bar">
+        <div class="top-bar-left">
+            EventBrite Challenge
+        </div>
+        <div class="top-bar-right">
+            Github
+        </div>
+    </header>
+    <br>
+    <br>
     <body class='with-3d-shadow with-transitions'>
-    <header>Eventbrite Streamgraph</header>
-    <button onclick="streamgraph.requestData(socket)">Request Data</button>
-    <!-- <div elevation="1" style="padding: 15px;"> -->
-    <div id="chart1">
-    <svg></svg>
+        <div class="row" style="height: 480px;">
+            <div class="small-10 large-centered columns">
+                <div id="chart1">
+                <svg></svg>
+            </div>
+        </div>
+        <div class="row">
+            <div class="small-10 large-centered columns">
+                <form id="form">
+                    <fieldset class="fieldset">
+                        <div  class="input-group">
+                            <span class="input-group-label">Start Date (yyyy-dd-mm)</span>
+                            <input class="input-group-field" id="start" type="text" value="2016-01-01">
+                            <span class="input-group-label">End Date (yyyy-dd-mm)</span>
+                            <input class="input-group-field" id="end" type="text" value="2016-04-01">
+                            <div class="input-group-button">
+                                <input type="submit" class="button" value="Apply">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- </div > -->
 </body>
 </html>

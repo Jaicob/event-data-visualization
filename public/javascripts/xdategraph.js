@@ -102,8 +102,8 @@ var streamgraph = function() {
                     return d3.time.format('%x')(new Date(d))
                 });
                 chart.yAxis.tickFormat(d3.format(',.4f'));
-                chart.width(900);
-                chart.height(560);
+                // chart.width(900);
+                // chart.height(560);
                 chart.legend.vers('furious');
                 chartData = d3.select('#chart1 svg').datum(nestedData);
                 chartData.transition().duration(1000)

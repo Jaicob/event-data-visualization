@@ -42,8 +42,8 @@ exports.events = function(req, res, next) {
 }
 
 //Temporary implementation of a way to populate the graph, this will move to a service that interact with the api next
-exports.getData = function(callback) {
-    events.all(function(data) {
+exports.getData = function(start, end, callback) {
+    events.all(start, end, function(data) {
         callback(data);
     });
 };
