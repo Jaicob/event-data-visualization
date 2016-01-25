@@ -2,11 +2,17 @@
   "development": {
     "redisPort": 6379,
     "redisHost": "172.17.0.2",
-    "errorHandlerOptions": {"dumpExceptions": true, "showStack": true}
+    "errorHandlerOptions": {
+      "dumpExceptions": true,
+      "showStack": true
+    }
   },
   "production": {
     "redisPort": 6379,
     "redisHost": "172.17.0.4",
-    "errorHandlerOptions": {"dumpExceptions": false, "showStack": false}
+    "errorHandlerOptions": {
+      "dumpExceptions": false,
+      "showStack": false
+    }
   }
 }

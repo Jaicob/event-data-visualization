@@ -1,201 +1,201 @@
 [{
-    "capacity": 50,
-    "category_id": "112",
-    "date": "2016-01-17"
+  "capacity": 50,
+  "category_id": "112",
+  "date": "2016-01-17"
 }, {
-    "capacity": 14,
-    "category_id": "115",
-    "date": "2016-01-17"
+  "capacity": 14,
+  "category_id": "115",
+  "date": "2016-01-17"
 }, {
-    "capacity": 20,
-    "category_id": "199",
-    "date": "2016-01-18"
+  "capacity": 20,
+  "category_id": "199",
+  "date": "2016-01-18"
 }, {
-    "capacity": 100,
-    "category_id": "107",
-    "date": "2016-01-18"
+  "capacity": 100,
+  "category_id": "107",
+  "date": "2016-01-18"
 }, {
-    "capacity": 100,
-    "category_id": "105",
-    "date": "2016-01-18"
+  "capacity": 100,
+  "category_id": "105",
+  "date": "2016-01-18"
 }, {
-    "capacity": 9,
-    "category_id": "112",
-    "date": "2016-01-18"
+  "capacity": 9,
+  "category_id": "112",
+  "date": "2016-01-18"
 }, {
-    "capacity": 780,
-    "category_id": "115",
-    "date": "2016-01-18"
+  "capacity": 780,
+  "category_id": "115",
+  "date": "2016-01-18"
 }, {
-    "capacity": 14,
-    "category_id": "112",
-    "date": "2016-01-18"
+  "capacity": 14,
+  "category_id": "112",
+  "date": "2016-01-18"
 }, {
-    "capacity": 400,
-    "category_id": "115",
-    "date": "2016-01-19"
+  "capacity": 400,
+  "category_id": "115",
+  "date": "2016-01-19"
 }, {
-    "capacity": 100,
-    "category_id": "115",
-    "date": "2016-01-19"
+  "capacity": 100,
+  "category_id": "115",
+  "date": "2016-01-19"
 }, {
-    "capacity": 20,
-    "category_id": "115",
-    "date": "2016-01-19"
+  "capacity": 20,
+  "category_id": "115",
+  "date": "2016-01-19"
 }, {
-    "capacity": 16,
-    "category_id": "105",
-    "date": "2016-01-19"
+  "capacity": 16,
+  "category_id": "105",
+  "date": "2016-01-19"
 }, {
-    "capacity": 25,
-    "category_id": "105",
-    "date": "2016-01-19"
+  "capacity": 25,
+  "category_id": "105",
+  "date": "2016-01-19"
 }, {
-    "capacity": 350,
-    "category_id": "108",
-    "date": "2016-01-18"
+  "capacity": 350,
+  "category_id": "108",
+  "date": "2016-01-18"
 }, {
-    "capacity": 200,
-    "category_id": "112",
-    "date": "2016-01-19"
+  "capacity": 200,
+  "category_id": "112",
+  "date": "2016-01-19"
 }, {
-    "capacity": 250,
-    "category_id": "111",
-    "date": "2016-01-17"
+  "capacity": 250,
+  "category_id": "111",
+  "date": "2016-01-17"
 }, {
-    "capacity": 30,
-    "category_id": "112",
-    "date": "2016-01-17"
+  "capacity": 30,
+  "category_id": "112",
+  "date": "2016-01-17"
 }, {
-    "capacity": 10000,
-    "category_id": "102",
-    "date": "2016-01-19"
+  "capacity": 10000,
+  "category_id": "102",
+  "date": "2016-01-19"
 }, {
-    "capacity": 100,
-    "category_id": "115",
-    "date": "2016-01-19"
+  "capacity": 100,
+  "category_id": "115",
+  "date": "2016-01-19"
 }, {
-    "capacity": 100,
-    "category_id": "115",
-    "date": "2016-01-19"
+  "capacity": 100,
+  "category_id": "115",
+  "date": "2016-01-19"
 }, {
-    "capacity": 25,
-    "category_id": "102",
-    "date": "2016-01-19"
+  "capacity": 25,
+  "category_id": "102",
+  "date": "2016-01-19"
 }, {
-    "capacity": 10,
-    "category_id": "107",
-    "date": "2016-01-19"
+  "capacity": 10,
+  "category_id": "107",
+  "date": "2016-01-19"
 }, {
-    "capacity": 40,
-    "category_id": "101",
-    "date": "2016-01-19"
+  "capacity": 40,
+  "category_id": "101",
+  "date": "2016-01-19"
 }, {
-    "capacity": 12,
-    "category_id": "107",
-    "date": "2016-01-19"
+  "capacity": 12,
+  "category_id": "107",
+  "date": "2016-01-19"
 }, {
-    "capacity": 425,
-    "category_id": "102",
-    "date": "2016-01-19"
+  "capacity": 425,
+  "category_id": "102",
+  "date": "2016-01-19"
 }, {
-    "capacity": 100,
-    "category_id": "112",
-    "date": "2016-01-19"
+  "capacity": 100,
+  "category_id": "112",
+  "date": "2016-01-19"
 }, {
-    "capacity": 423,
-    "category_id": "199",
-    "date": "2016-01-19"
+  "capacity": 423,
+  "category_id": "199",
+  "date": "2016-01-19"
 }, {
-    "capacity": 500,
-    "category_id": "105",
-    "date": "2016-01-19"
+  "capacity": 500,
+  "category_id": "105",
+  "date": "2016-01-19"
 }, {
-    "capacity": 40,
-    "category_id": "112",
-    "date": "2016-01-19"
+  "capacity": 40,
+  "category_id": "112",
+  "date": "2016-01-19"
 }, {
-    "capacity": 25,
-    "category_id": "112",
-    "date": "2016-01-19"
+  "capacity": 25,
+  "category_id": "112",
+  "date": "2016-01-19"
 }, {
-    "capacity": 15,
-    "category_id": "107",
-    "date": "2016-01-19"
+  "capacity": 15,
+  "category_id": "107",
+  "date": "2016-01-19"
 }, {
-    "capacity": 48,
-    "category_id": "104",
-    "date": "2016-01-19"
+  "capacity": 48,
+  "category_id": "104",
+  "date": "2016-01-19"
 }, {
-    "capacity": 100,
-    "category_id": "108",
-    "date": "2016-01-19"
+  "capacity": 100,
+  "category_id": "108",
+  "date": "2016-01-19"
 }, {
-    "capacity": 214,
-    "category_id": "115",
-    "date": "2016-01-19"
+  "capacity": 214,
+  "category_id": "115",
+  "date": "2016-01-19"
 }, {
-    "capacity": 100,
-    "category_id": "199",
-    "date": "2016-01-20"
+  "capacity": 100,
+  "category_id": "199",
+  "date": "2016-01-20"
 }, {
-    "capacity": 25,
-    "category_id": "107",
-    "date": "2016-01-19"
+  "capacity": 25,
+  "category_id": "107",
+  "date": "2016-01-19"
 }, {
-    "capacity": 20,
-    "category_id": "101",
-    "date": "2016-01-19"
+  "capacity": 20,
+  "category_id": "101",
+  "date": "2016-01-19"
 }, {
-    "capacity": 8,
-    "category_id": "112",
-    "date": "2016-01-20"
+  "capacity": 8,
+  "category_id": "112",
+  "date": "2016-01-20"
 }, {
-    "capacity": 30,
-    "category_id": "107",
-    "date": "2016-01-19"
+  "capacity": 30,
+  "category_id": "107",
+  "date": "2016-01-19"
 }, {
-    "capacity": 20,
-    "category_id": "101",
-    "date": "2016-01-19"
+  "capacity": 20,
+  "category_id": "101",
+  "date": "2016-01-19"
 }, {
-    "capacity": 30,
-    "category_id": "199",
-    "date": "2016-01-19"
+  "capacity": 30,
+  "category_id": "199",
+  "date": "2016-01-19"
 }, {
-    "capacity": 225,
-    "category_id": "114",
-    "date": "2016-01-20"
+  "capacity": 225,
+  "category_id": "114",
+  "date": "2016-01-20"
 }, {
-    "capacity": 141,
-    "category_id": "112",
-    "date": "2016-01-19"
+  "capacity": 141,
+  "category_id": "112",
+  "date": "2016-01-19"
 }, {
-    "capacity": 91,
-    "category_id": "114",
-    "date": "2016-01-19"
+  "capacity": 91,
+  "category_id": "114",
+  "date": "2016-01-19"
 }, {
-    "capacity": 200,
-    "category_id": "114",
-    "date": "2016-01-20"
+  "capacity": 200,
+  "category_id": "114",
+  "date": "2016-01-20"
 }, {
-    "capacity": 22,
-    "category_id": "119",
-    "date": "2016-01-20"
+  "capacity": 22,
+  "category_id": "119",
+  "date": "2016-01-20"
 }, {
-    "capacity": 20,
-    "category_id": "112",
-    "date": "2016-01-17"
+  "capacity": 20,
+  "category_id": "112",
+  "date": "2016-01-17"
 }, {
-    "capacity": 100,
-    "category_id": "101",
-    "date": "2016-01-18"
+  "capacity": 100,
+  "category_id": "101",
+  "date": "2016-01-18"
 }, {
-    "capacity": 120,
-    "category_id": "115",
-    "date": "2016-01-18"
+  "capacity": 120,
+  "category_id": "115",
+  "date": "2016-01-18"
 }, {
-    "capacity": 100,
-    "category_id": "114",
-    "date": "2016-01-20"
+  "capacity": 100,
+  "category_id": "114",
+  "date": "2016-01-20"
 }]

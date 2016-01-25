@@ -22,25 +22,30 @@
         
         </style>
     </head>
+
     <script>
-    var socket = io();
-    socket.on('init event stream', function (data) {
-    streamgraph.initGraph('data.json',_);
-    });
-    socket.on('event stream', function (data) {
-    streamgraph.updateChartData(data.data);
-    });
-    $(document).ready(function(){
-    $(document).foundation();
-    $('#form').submit(function(event){
-    socket.emit('event req',
-    {start: $('#start').val(),
-    end:$('#end').val()
-    });
-    event.preventDefault();
-    });
-    });
+        var socket = io();
+        socket.on('init event stream', function (data) {
+          streamgraph.initGraph('data.json',_);
+        });
+
+        socket.on('event stream', function (data) {
+          streamgraph.updateChartData(data.data);
+        });
+
+        $(document).ready(function(){
+          $(document).foundation();
+          $('#form').submit(function(event){
+            socket.emit('event req',
+            {
+              start: $('#start').val(),
+              end:$('#end').val()
+            });
+            event.preventDefault();
+          });
+        });
     </script>
+
     <div class="top-bar">
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
@@ -53,12 +58,14 @@
             </ul>
         </div>
     </div>
+
     <br>
     <br>
+
     <body class='with-3d-shadow with-transitions'>
         <div class="row" style="height: 480px;">
             <div class="small-10 large-centered columns">
-                <div id="chart1">
+                <div id="chart1"></div>
                 <svg></svg>
             </div>
         </div>
@@ -79,7 +86,5 @@
                 </form>
             </div>
         </div>
-    </div>
-</div>
-</body>
+    </body>
 </html>
