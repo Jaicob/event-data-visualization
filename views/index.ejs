@@ -4,6 +4,7 @@
         <link href="stylesheets/nvd3.css" rel="stylesheet" type="text/css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.2/d3.min.js" charset="utf-8"></script>
         <script src="bower_components/underscore/underscore-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.1.2/foundation-flex.css"></script>
         <script src="javascripts/nvd3.js"></script>
         <script src="javascripts/xdategraph.js"></script>
         <script src="/socket.io/socket.io.js"></script>
@@ -18,26 +19,24 @@
         </style>
     </head>
     <script>
-        var socket = io();
-        socket.on('init event stream', function (data) {
-        console.log("Received event stream response");
-        console.log(data.data);
-        streamgraph.initGraph('data.json','orange',_);
-        });
-        socket.on('event stream', function (data) {
-        console.log("Received event stream response");
-        streamgraph.updateData(data.data);
-        });
+    var socket = io();
+    socket.on('init event stream', function (data) {
+    console.log("Received event stream response",data.data);
+    streamgraph.initGraph('data.json','orange',_);
+    });
+    socket.on('event stream', function (data) {
+    console.log("Received more data");
+    console.log(data.data);
+    streamgraph.updateChartData(data.data);
+    });
     </script>
     <body class='with-3d-shadow with-transitions'>
     <header>Eventbrite Streamgraph</header>
-    <div style="height:500px; width:980px;">
-        <div elevation="1" style="padding: 15px;">
-        <svg id="chart1" style="z-index:100;"></svg>
-        <script>
-      
-        </script>
-    </div >
+    <button onclick="streamgraph.requestData(socket)">Request Data</button>
+    <!-- <div elevation="1" style="padding: 15px;"> -->
+    <div id="chart1">
+    <svg></svg>
 </div>
+<!-- </div > -->
 </body>
 </html>

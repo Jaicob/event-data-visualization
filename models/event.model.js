@@ -1,8 +1,9 @@
 var db = require('../db');
 var categories = require('./category.model').get();
+var eventbrite = require('../services/eventbrite_api.service');
 var _ = require("underscore");
 
-exports.add = function(eventObject, callback) {
+var add = function(eventObject, callback) {
     db.get().flushall();
     var data = {
         date: eventObject.start.utc,
@@ -14,16 +15,14 @@ exports.add = function(eventObject, callback) {
     db.get().rpush(data.created, JSON.stringify(data), callback);
 }
 
-exports.addList = function(eventObjects, callback) {
+var addList = function(eventObjects, callback) {
     db.get().flushall();
 
-    data = eventObjects
+    var data = eventObjects
         .filter(function(event) {
             return !(event.category_id == null);
         })
         .map(function(event) {
-            // if (event.start.utc == null || event.category_id == null) return; //throw out data with no date
-            console.log("Cat id", event.category_id);
             var data = {
                 capacity: event.capacity,
                 category_id: event.category_id,
@@ -38,7 +37,7 @@ exports.addList = function(eventObjects, callback) {
 /*
  * Gets events per a specified category
  */
-exports.getByCategory = function(category, callback) {
+var getByCategory = function(category, callback) {
     db.get().lrange("events", 0, -1, function(err, items) {
 
         items = items.map(function(item) {
@@ -52,11 +51,23 @@ exports.getByCategory = function(category, callback) {
     });
 }
 
-exports.all = function(callback) {
-    db.get().lrange("events", 0, -1, function(err, items) {
-        callback(items.map(function(item) {
-            var data = JSON.parse(item);
-            return data
-        }));
-    });
+var all = function(callback) {
+    //If not in the db then needs to populate the db and add it
+    eventbrite.getEvents(function(data) {
+        addList(data.events, function() {
+            db.get().lrange("events", 0, -1, function(err, items) {
+                callback(items.map(function(item) {
+                    var data = JSON.parse(item);
+                    return data
+                }));
+            });
+        })
+    })
+}
+
+module.exports = {
+  add: add,
+  addList: addList,
+  getByCategory: getByCategory,
+  all: all
 }

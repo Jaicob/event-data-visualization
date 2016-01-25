@@ -30,7 +30,7 @@ exports.ptest = function(req, res, next) {
  * Serves up the root page
  */
 exports.test = function(req, res, next) {
-    eventbrite.getCategories(function(data){
+    eventbrite.getEvents(function(data){
         res.json(data);
     });
 };
@@ -43,18 +43,8 @@ exports.events = function(req, res, next) {
 
 //Temporary implementation of a way to populate the graph, this will move to a service that interact with the api next
 exports.getData = function(callback) {
-    events.all(function(err, data) {
-        var i = 22;
-        data.forEach(function(event) {
-            var category = event.category_id;
-            var categoryIndex = categories[category];
-            results[categoryIndex].push({
-                "x": i++,
-                "y": event.capacity,
-            });
-        });
-        console.log("results", results);
-        callback(results);
+    events.all(function(data) {
+        callback(data);
     });
 };
 
