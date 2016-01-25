@@ -3,7 +3,7 @@ var streamgraph = function() {
     var datearray = [];
     var colorrange = [];
 
-    function chart(csvpath, color, _) {
+    function chart(jsonpath, color, _) {
 
         var format = d3.time.format("%Y-%m-%d");
 
@@ -12,7 +12,7 @@ var streamgraph = function() {
                 return d.category_id;
             });
 
-        var graph = d3.json(csvpath, function(data) {
+        var graph = d3.json(jsonpath, function(data) {
             var datearray = [];
 
             data.forEach(function(d) {

@@ -17,14 +17,20 @@ exports.add = function(eventObject, callback) {
 exports.addList = function(eventObjects, callback) {
     db.get().flushall();
 
-    data = eventObjects.map(function(event) {
-        var data = {
-            capacity: event.capacity,
-            category_id: event.category_id,
-            date: event.start.utc.substring(0, event.start.utc.indexOf('T'))
-        }
-        return JSON.stringify(data);
-    });
+    data = eventObjects
+        .filter(function(event) {
+            return !(event.category_id == null);
+        })
+        .map(function(event) {
+            // if (event.start.utc == null || event.category_id == null) return; //throw out data with no date
+            console.log("Cat id", event.category_id);
+            var data = {
+                capacity: event.capacity,
+                category_id: event.category_id,
+                date: event.start.utc.substring(0, event.start.utc.indexOf('T'))
+            }
+            return JSON.stringify(data);
+        });
 
     db.get().rpush("events", data, callback);
 }
